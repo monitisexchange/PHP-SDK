@@ -1,7 +1,7 @@
 <?php
 include_once("api.php");
 echo "<pre>";
-####call of function to User key for registered User [parameters:  username(email), Password]
+####call of function to User key for registered User [parameters:  username(email), Password] 
 //$resultgetUserkey = $Monitis_object->getUserKey("devesh.naswa@gmail.com", "000000"); //get Json result
 //$resultgetUserkey = $Monitis_object->getUserKey("devesh.naswa@gmail.com", "000000", "xml"); //get xml result
 //print_r($resultgetUserkey);
