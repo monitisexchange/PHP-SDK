@@ -23,7 +23,7 @@ class CustomMonitor extends BaseMonitor
 		dataType could be		1 for boolean		2 for integer		3 for string		4 for float
 		isHidden set to to true if you don't want to show monitor parameter in Monitis dashbord, otherwise set it to false.
 	*********************/
-	public function addMonitor($name, $tag, $resultParams, $monitorParams = "")
+	public function addCustomMonitor($name, $tag, $resultParams, $monitorParams = "")
 	{
 		if ($monitorParams != "")
 			$params["monitorParams"] = parent::myUrlEncode($monitorParams);
@@ -43,7 +43,7 @@ class CustomMonitor extends BaseMonitor
 	$monitorParams parameters of the monitor in the following format:
 		name1:displayName1:value1:dataType1:isHidden1[;name2:displayName2:value2:dataType2:isHidden2...]
 	*********************/
-	public function editMonitor($monitorId, $name, $tag, $monitorParams = NULL)
+	public function editCustomMonitor($monitorId, $name, $tag, $monitorParams = NULL)
 	{
 		if ($monitorParams != NULL)
 			$params["monitorParams"] = parent::myUrlEncode($monitorParams);
@@ -59,7 +59,7 @@ class CustomMonitor extends BaseMonitor
 	function name deleteMonitor
 	$monitorId monitor ID to edit
 	*********************/
-	public function deleteMonitor($monitorId)
+	public function deleteCustomMonitor($monitorId)
 	{
 		$params["monitorId"] = $monitorId;
 		$resp = parent::makePostRequest("deleteMonitor", $params);
@@ -73,7 +73,7 @@ class CustomMonitor extends BaseMonitor
 	$results result(s) of the monitor in the following format:
 			paramName1:paramValue1[;paramName2:paramValue2...]
 	*********************/
-	public function addResult($monitorId, $checktime, $results)
+	public function addCustomResult($monitorId, $checktime, $results)
 	{
 		$params["results"] = parent::myUrlEncode($results);
 		$params["monitorId"] = $monitorId;
@@ -87,7 +87,7 @@ class CustomMonitor extends BaseMonitor
 	$tag tag to find
 	$output out put type to get output of monitors lidt in Json or xml format
 	*********************/
-	public function getMonitors($tag = "", $output = "")
+	public function getCustomMonitors($tag = "", $output = "")
 	{
 		if ($tag != "")
 		  $params["tag"] = parent::myUrlEncode($tag);
@@ -103,9 +103,9 @@ class CustomMonitor extends BaseMonitor
 	$tag tag to find
 	$output out put type to get output of monitors lidt in Json or xml format
 	*********************/
-	public function getMonitorInfo($monitorId, $excludeHidden, $output = "")
+	public function getCustomMonitorInfo($monitorId, $excludeHidden, $output = "")
 	{
-		$params[parent::getMonitorIdString()] = $monitorId;
+		$params["monitorId"] = $monitorId;
 		$params["output"] = $output;
 		$params["excludeHidden"] = $excludeHidden;
 		$resp = parent::makeGetRequest("getMonitorInfo", $params);
