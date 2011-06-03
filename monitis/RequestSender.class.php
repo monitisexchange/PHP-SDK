@@ -63,12 +63,12 @@ abstract class RequestSender
 		curl_setopt($exCurl, CURLOPT_HEADER, 0);
 		curl_setopt($exCurl, CURLOPT_POST, 1 );
 		curl_setopt($exCurl, CURLOPT_POSTFIELDS, $queryParamsStr);
-		curl_setopt($exCurl, CURLOPT_REFERER, 0);
-  		curl_setopt($exCurl, CURLOPT_RETURNTRANSFER, 1);
-		$resp = curl_exec($exCurl);
+		curl_setopt($exCurl, CURLOPT_REFERER, 0);  		
 		if(isset($queryParams["ouput"]) && trim($queryParams["ouput"])=="xml") {
-			//$data = ob_get_contents();
+			$resp = curl_exec($exCurl);
 		} else {
+			curl_setopt($exCurl, CURLOPT_RETURNTRANSFER, 1);
+			$resp = curl_exec($exCurl);
 			$resp = json_decode($resp, true);
 		}
 		curl_close($exCurl);		
@@ -104,20 +104,16 @@ abstract class RequestSender
 		$curlUrl = $url."?".http_build_query($queryParams, '', '&');
 		$exCurl = curl_init(); 
 		curl_setopt($exCurl, CURLOPT_URL, $curlUrl);
-		curl_setopt($exCurl, CURLOPT_RETURNTRANSFER, 1);		
-		$data = curl_exec($exCurl);				
-		if(isset($queryParams["ouput"]) && trim($queryParams["ouput"])=="xml") {
-			//$data = ob_get_contents();
+		if(isset($params["ouput"]) && trim($params["ouput"])=="xml") {
+			$data = curl_exec($exCurl);
 		} else {
+			curl_setopt($exCurl, CURLOPT_RETURNTRANSFER, 1);		
+			$data = curl_exec($exCurl);
 			$data = json_decode($data, true);
-		}		
+		}
 		curl_close($exCurl);
 		return $data;
 	}
-	/*
-	public static function main($args = array()) {
-		print(date("Y-m-d H:i:s"));
-	}*/
 	/*************
 	function to create checksum for posted vars
 	$stringToSign parameter string to be converted
