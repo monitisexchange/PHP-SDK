@@ -13,13 +13,6 @@ EXAMPLES
 
     See 'eg' directory of this distribution for examples.
 
-DEPENDENCIES
-
-    LWP::UserAgent
-    JSON
-    Digest::SHA
-    HTTP::Message
-
 
 AUTHORS
 
@@ -30,7 +23,7 @@ COPYRIGHT AND LICENSE
 Copyright (C) 2006-2011, Monitis Inc.
 
 This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
+it under the same terms as PHP itself.
 
 About Monitis 
 
