@@ -1,7 +1,7 @@
 <?php
 include_once("api.php");
 echo "<pre>";
-####call of function to User key for registered User [parameters:  username(email), Password] 
+####call of function to User key for registered User [parameters:  username(email), Password]
 //$resultgetUserkey = $Monitis_object->getUserKey("devesh.naswa@gmail.com", "000000"); //get Json result
 //$resultgetUserkey = $Monitis_object->getUserKey("devesh.naswa@gmail.com", "000000", "xml"); //get xml result
 //print_r($resultgetUserkey);
@@ -83,9 +83,9 @@ echo "<pre>";
 //echo "<br />";
 
 ####call of function to Get Contacts[parameters: $contactId, $firstName = "", $lastName="", $account="", $country = "", $contactType = "", $timezone = "", $textType = "", $portable = "", $code = "", $output = "", $sendDailyReport=NULL, $sendWeeklyReport=NULL, $sendMonthlyReport=NULL]
-//$resultAddContact = $Monitis_object->getContacts('xml');
-//print_r($resultAddContact);
-//echo "<br />";
+$resultAddContact = $Monitis_object->getContacts('xml');
+print_r($resultAddContact);
+echo "<br />";
 
 ####call of function to Edit Contact[parameters: $contactId, $firstName = "", $lastName="", $account="", $country = "", $contactType = "", $timezone = "", $textType = "", $portable = "", $code = "", $output = "", $sendDailyReport=NULL, $sendWeeklyReport=NULL, $sendMonthlyReport=NULL]
 //$resultEditContact = $Monitis_object->editContact("14242", "Stuart", "Test", "parker@123789.org", "US", 1, 240, true, "", "","xml");
@@ -692,7 +692,7 @@ echo "<pre>";
 //echo "<br />";
 
 //call of function to get get Full Load MOnitors[$monitorIds = NULL, $tag = NULL]
-$resultgetMon = $Monitis_object->activateFullPageLoadMonitor("", "full_test");
-print_r($resultgetMon);
-echo "<br />";
+//$resultgetMon = $Monitis_object->activateFullPageLoadMonitor("", "full_test");
+//print_r($resultgetMon);
+//echo "<br />";
 ?>
