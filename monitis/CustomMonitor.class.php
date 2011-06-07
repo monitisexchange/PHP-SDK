@@ -111,5 +111,28 @@ class CustomMonitor extends BaseMonitor
 		$resp = parent::makeGetRequest("getMonitorInfo", $params);
 		return $resp;
 	}
+	/*********************
+	Function to add result Monitor
+	function name getMonitorInfo
+	$monitorId id of monitor to info to
+	$tag tag to find
+	$output out put type to get output of monitors lidt in Json or xml format
+	*********************/
+	public function getCustomMonitorResults($monitorId, $year, $month, $day, $timezone = "", $output = "")
+	{
+		$params["monitorId"] = $monitorId;
+		$params["year"] = $year;
+		$params["month"] = $month;
+		$params["day"] = $day;
+		if ($timezone != "")
+			$params["timezone"] = $timezone;
+		
+		if ($output == "xml")
+			$params["output"] = $output;
+		else
+			$params["output"] = "";
+		$resp = parent::makeGetRequest("getMonitorResults", $params);
+		return $resp;
+	}
 }
 ?>

@@ -71,7 +71,21 @@ class TransactionMonitor extends BaseMonitor
 		$params["type"] = $type;
 		$params["output"] = $output;		
 		return parent::makeGetRequest("transactionTests", $params);
-	}	
+	}
+	/*********************
+	Function to get result Monitor
+	function name getMonitorInfo
+	$monitorId id of monitor to info to
+	$tag tag to find
+	$output out put type to get output of monitors lidt in Json or xml format
+	*********************/
+	public function getTransactionTestInfo($monitorId, $output = "")
+	{
+		$params["monitorId"] = $monitorId;
+		$params["output"] = $output;
+		$resp = parent::makeGetRequest("transactionTestInfo", $params);
+		return $resp;
+	}
 	/*********************
 	Function to get TransactionTestResult;
 	function name getTransactionTestResult
